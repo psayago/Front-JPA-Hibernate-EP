@@ -1,0 +1,18 @@
+<table>
+    <tr style="background-color: lightseagreen;">
+        <td>cod_producto</td>
+        <td>nombre</td>
+        <td>descripcion</td>
+        <td>precio</td>
+        <td></td>
+    </tr>
+
+    <tr *ngFor='let item of listaProductos; index as i' style="background-color: lightsteelblue;">
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>{{item.descripcion}}</td>
+        <td>{{item.precio}}</td>
+        <td><button (click)="cargarEnCarrito(listaProductos[i])" style="align-self: flex-end;">Cargar</button></td>
+    </tr>
+
+</table>

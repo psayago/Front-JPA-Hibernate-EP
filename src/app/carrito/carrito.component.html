@@ -1,0 +1,30 @@
+<table style="background-color: lightcyan;">
+    <tr style="background-color: lightslategray;">
+        <td>Carrito de compra</td>
+        <td></td>
+        <td>Fecha creacion: {{this.carrito.fechaCreacion | date }}</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td style="background-color: lightseagreen;">Cliente</td>
+        <td>{{this.carrito.cliente.apellido}}, {{this.carrito.cliente.nombre}}</td>
+    </tr>
+    <tr *ngFor='let item of carrito.productos; index as i'>
+        <td style="background-color: lightseagreen;">Producto :</td>
+        <td>{{item.id}}</td>
+        <td>{{item.nombre}}</td>
+        <td>x{{item.cantidad}}</td>
+        <td>{{item.precio}}</td>
+    </tr>
+    <tr style="background-color: palevioletred;">
+        <td>Subtotal</td>
+        <td>{{carrito.total}}</td>
+        <td>Descuento {{this.descuento}}</td>
+        <td>Total</td>
+        <td>{{carrito.total - this.descuento}}</td>
+    </tr>
+
+
+
+</table>
