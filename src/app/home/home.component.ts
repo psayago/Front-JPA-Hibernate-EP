@@ -150,10 +150,16 @@ export class HomeComponent implements OnInit {
       );
     });
     promesa.then(resp => {
-      this.myDB.carritos.clear().then(res=> this.router.navigate(['/*']))
+      this.myDB.carritos.clear().then(res => this.refresh());
     });
-
   }
+
+  eliminarCompra(){
+    this.myDB.carritos.clear().then(res => this.refresh())
+  }
+  refresh(): void { 
+    window.location.reload(); 
+} 
 
   traerClientes(): Promise<any> {
     return new Promise((resolver, rechazar) => {
