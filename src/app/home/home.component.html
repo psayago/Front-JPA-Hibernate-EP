@@ -1,33 +1,43 @@
-<div style="position: relative;offset-block-start: 50px  ;">
-    <h1>Examen Tecnico</h1>
+<div style="position: relative; offset-block-start: 50px;">
+  <h1>Examen Tecnico</h1>
 
-    <div>
-        <br>
-        <div class="row">
-            <label>Seleccione cliente: </label>
-            <select name="select" [(ngModel)]="this.clienteSeleccionado">
-                <option [ngValue]="item" *ngFor="let item of clientes">{{item.apellido}}, {{item.nombre}}</option>
-            </select>
-        </div>
-
-        <div class="row">
-            <label>Seleccione la fecha actual: </label>
-            <input type="date" [(ngModel)]="fechaActual" name="fechaActual" id="date" />
-        </div>
-
-        <br>
-        <app-tabla-productos [listaProductos]="this.productos" (producto)="this.cargarProducto($event)">
-        </app-tabla-productos>
-
-        <br>
-        <div *ngIf="mostrarCarrito()">
-            <app-carrito [carrito]="this.carrito" [descuento]="this.descuento"></app-carrito>
-            <button (click)="pressButton()" id="confirmar" style="align-items: flex-end!important;">Confirmar
-                compra</button>
-        </div>
-
-
-
-
+  <div>
+    <br />
+    <div class="row">
+      <label>Seleccione cliente: </label>
+      <select name="select" [(ngModel)]="this.clienteSeleccionado" required>
+        <option [ngValue]="item" *ngFor="let item of clientes">
+          {{ item.apellido }}, {{ item.nombre }}
+        </option>
+      </select>
     </div>
+
+    <div class="row">
+      <label>Seleccione la fecha actual: </label>
+      <input
+        type="date"
+        [(ngModel)]="fechaActual"
+        name="fechaActual"
+        id="date"
+      />
+    </div>
+
+    <br />
+    <app-tabla-productos
+      [listaProductos]="this.productos"
+      (producto)="this.cargarProducto($event)"
+    >
+    </app-tabla-productos>
+
+    <br />
+    <div *ngIf="mostrarCarrito()">
+      <app-carrito
+        [carrito]="this.carrito"
+        [descuento]="this.descuento"
+      ></app-carrito>
+      <button (click)="confirmarCompra()" id="confirmar" style="align-items: flex-end !important;">
+        Confirmar compra
+      </button>
+    </div>
+  </div>
 </div>

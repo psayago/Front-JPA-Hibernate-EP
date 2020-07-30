@@ -3,12 +3,16 @@ import { HttpClient } from '@angular/common/http';
 import { error } from '@angular/compiler/src/util';
 
 @Injectable()
-export class TraerDelBackService {
+export class BackService {
 
     constructor(private http: HttpClient) { }
 
-    public peticion(url: string): any {
+    public peticionGet(url: string): any {
         return this.http.get(url);
+    }
+
+    public peticionPost(url: string, obj : any): any {
+        return this.http.post(url,obj);
     }
 
 }

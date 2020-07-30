@@ -6,10 +6,10 @@ export class Carrito {
     cliente: any;
     productos: Array<ProductoCompra>;
     total: number;
-    fechaCreacion: Date;
+    fechaCreacion: string;
     tipoCarrito: TipoCarrito;
 
-    constructor(id: number, cliente: any, productos: Array<any>, total: number, fechaCreacion: Date) {
+    constructor(id: number, cliente: any, productos: Array<any>, total: number, fechaCreacion: string) {
         this.id = id;
         this.cliente = cliente;
         this.productos = productos;
@@ -20,8 +20,8 @@ export class Carrito {
 }
 
 export enum TipoCarrito {
-    COMUN = "comun",
-    PROMOCIONABLE = "promocionable",
-    VIP = "vip"
+    COMUN ,
+    PROMOCIONABLE,
+    VIP 
 }
 

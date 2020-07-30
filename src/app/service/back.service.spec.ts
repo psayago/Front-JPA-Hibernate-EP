@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TraerDelBackService } from './traer-del-back.service';
+import { BackService } from './back.service';
 
 describe('TraerDelBackService', () => {
-  let service: TraerDelBackService;
+  let service: BackService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TraerDelBackService);
+    service = TestBed.inject(BackService);
   });
 
   it('should be created', () => {
