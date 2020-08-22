@@ -17,6 +17,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { AdministracionModule } from './modulos/administracion/administracion.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
     declarations: [
@@ -36,7 +38,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         MatToolbarModule,
         MatButtonModule,
         AdministracionModule,
-        MatFormFieldModule
+        MatFormFieldModule,
+        MatProgressSpinnerModule,
+        MatCardModule
     ],
     providers: [BackService, MyDatabaseService],
     bootstrap: [AppComponent]

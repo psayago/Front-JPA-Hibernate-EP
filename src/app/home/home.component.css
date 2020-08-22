@@ -1,3 +1,19 @@
-table {
+.table {
     width: 100%;
   }
+
+  .spinner{
+    align-content: center;
+  }
+
+  .example-h2 {
+    margin: 10px;
+  }
+  
+.example-margin {
+  margin: 0 10px;
+}
+
+.example-card {
+  max-width: 400px;
+}

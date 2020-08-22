@@ -21,24 +21,39 @@
         id="date"
       />
     </div>
-
     <br />
-    <app-tabla-productos
-      [listaProductos]="this.productos"
-      (producto)="this.cargarProducto($event)"
-    >
+    <app-tabla-productos [listaProductos]="this.productos" (producto)="this.cargarProducto($event)"*ngIf="!showSpinner">
     </app-tabla-productos>
+    <mat-card-content class="spinner" *ngIf="showSpinner">
+      <h2 class="example-h2">Cargando...</h2>
 
+      <mat-progress-spinner
+        class="example-margin"
+        [color]="color"
+        [mode]="mode"
+      >
+        <!-- [value]=indeterminate -->
+      </mat-progress-spinner>
+    </mat-card-content>
+    
     <br />
     <div *ngIf="mostrarCarrito()">
       <app-carrito
         [carrito]="this.carrito"
         [descuento]="this.descuento"
       ></app-carrito>
-      <button (click)="confirmarCompra()" id="confirmar" style="align-items: flex-end !important;">
+      <button
+        (click)="confirmarCompra()"
+        id="confirmar"
+        style="align-items: flex-end !important;"
+      >
         Confirmar compra
       </button>
-      <button (click)="eliminarCompra()" id="eliminar" style="align-items: flex-end !important;">
+      <button
+        (click)="eliminarCompra()"
+        id="eliminar"
+        style="align-items: flex-end !important;"
+      >
         Eliminar carrito
       </button>
     </div>

@@ -23,6 +23,9 @@ export class HomeComponent implements OnInit {
   public cantidadTotalProductos: number;
   public descuento: number = 0;
   public showCarrito: boolean = false;
+  public color: string = "primary";
+  public mode: string = "indeterminate";
+  public showSpinner: boolean = true;
 
   events: string[] = [];
 
@@ -40,7 +43,8 @@ export class HomeComponent implements OnInit {
         this.fechaActual = (new Date()).toISOString().slice(0,10);//.toLocaleDateString().split(" ")[0].split("/").reverse().join("-");
         this.carrito = new Carrito(1, this.clienteSeleccionado, [], 0, this.fechaActual);  
 
-        this.traerProductos().then((response) => {
+        this.traerProductos()
+          .then((response) => {
             this.productos = response;
             
             this.myDB.carritos.toArray().then((rsp) => {
@@ -52,6 +56,7 @@ export class HomeComponent implements OnInit {
               } else {   
                 this.myDB.carritos.add(this.carrito);
               }
+              this.showSpinner = false;
             });;
       })
       
